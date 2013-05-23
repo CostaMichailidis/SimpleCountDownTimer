@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Count Down</title>
+    <meta name="description" content="A simple CountDown Time for Speakers doing presentations less than one hour.">
+    <meta name="viewport" content="width=device-width">
+    <style type="text/css">
+      body, html {text-align:center;margin:0 auto;padding:0;width:100%;}
+      #timer {text-align:center;width:90%;margin:auto;font-family:Ubuntu;}
+      #clock {text-align:center;width:90%;margin:auto;}
+      #start {background:green;}
+      #stop {background:red;}
+    </style>
+  </head>
+  <body>
+    <div id="clock">
+      <h1 id="timer">00:00</h1>
+    </div>
+    <div id="setup">
+      <button id="one">1</button>
+      <button id="two">2</button>
+      <button id="three">3</button>
+      <button id="four">4</button>
+      <button id="five">5</button>
+      <br>
+      <button id="six">6</button>
+      <button id="seven">7</button>
+      <button id="eight">8</button>
+      <button id="nine">9</button>
+      <button id="zero">0</button>
+    </div>
+    <div id="run">
+      <button id="start">Start</button>
+      <button id="stop">Reset</button>
+    </div>
+    <script type="text/javascript">
+      /*
+       * Thanks to Jeremy Keith https://github.com/adactio/FitText.js. The code below makes the timer responsive by fitting to available width.
+       */
+      (function () {
+        "use strict";
+        window.addEventListener('load', function (event) {
+        var css = function (el, prop) {
+          return window.getComputedStyle ? getComputedStyle(el).getPropertyValue(prop) : el.currentStyle[prop];
+        };
+        var addEvent = function (el, type, fn) {
+          if (el.addEventListener) {
+            el.addEventListener(type, fn, false);
+          } else {
+            el.attachEvent('on'+type, fn);
+          }
+        };
+        window.fitText = function (el, kompressor) {
+          var settings = {
+            'minFontSize' : -1/0,
+            'maxFontSize' : 1/0
+          };
+          var fit = function (el) {
+            var compressor = kompressor || 1;
+            var resizer = function () {
+              el.style.fontSize = Math.max(Math.min(el.clientWidth / (compressor*10), parseFloat(settings.maxFontSize)), parseFloat(settings.minFontSize)) + 'px';
+            };
+            resizer();
+            addEvent(window, 'resize', resizer);
+          };
+          if (el.length) {
+            for(var i=0; i<el.length; i++)
+              fit(el[i]);
+          } else {
+            fit(el);
+          }
+          return el;
+        };
+        }, false);
+      }());
+    </script>
+    <script type="text/javascript">
+      (function () {
+        "use strict";
+        window.addEventListener('load', function (event) {
+          var timer = document.getElementById('timer');
+          var start = document.getElementById('start');
+          var reset = document.getElementById('reset');
+          fitText(timer, 0.3)
+        }, false);
+      }());
+    </script>
+  </body>
+</html>
+
