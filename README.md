@@ -1,4 +1,4 @@
-SimpleCountDownTimer
+KICountdown
 ====================
 
-A simple countdown timer which allows you to set and count down up to 99 minutes and 59 seconds.
+A simple countdown timer which can be remotely controlled via the Firebase api
