@@ -129,6 +129,7 @@
           var interval;
           var startToggle = document.getElementById('start');
           start.addEventListener('click', function (evt) {
+            document.getElementById('body').style.background = '#fdfdfd';
             var timer = document.getElementById('timer');
             var time = timer.innerHTML;
             var seconds = time.substr(3,2);
