@@ -127,7 +127,7 @@
           // When the user clicks Start, start the timer.
           var clockRunning = false;
           var interval;
-          var startToggle = document.getElementById('start');
+          startToggle = document.getElementById('start'); /* make it global */
           start.addEventListener('click', function (evt) {
             var timer = document.getElementById('timer');
             var time = timer.innerHTML;
