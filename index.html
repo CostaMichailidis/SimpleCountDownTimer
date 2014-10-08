@@ -117,7 +117,21 @@
 
           // Reset the timer when the user clicks reset.
           function resetTime () {
-            timer.innerHTML = '03:00';
+            var query = window.location.search.substring(1);
+            var vars = query.split('&');
+            var t;
+            vars.forEach(function (element, index, array) {
+              if (element.indexOf('t') === 0) {
+                t = element.split('=')[1];
+              }
+            });
+            if (t.length !== 5) {
+              t = '0' + t;
+              if (t.length !== 5 && t.indexOf(':') !== 3) {
+                t = '05:00';
+              }
+            }
+            timer.innerHTML = t;
             document.getElementById('body').style.background = '#fdfdfd';
           }
           reset.addEventListener('click', function (evt) {
