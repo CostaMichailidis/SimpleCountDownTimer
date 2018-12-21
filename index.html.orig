@@ -1,13 +1,13 @@
-<!doctype html>
-<html lang="en">
-  <head>
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>Count Down</title>
+    <title>Countdown Timer</title>
     <meta name="description" content="A simple CountDown Time for Speakers doing presentations less than one hour.">
     <meta name="viewport" content="width=device-width">
     <style type="text/css">
       body, html {text-align:center;margin:0 auto;padding:0;width:100%;background:#fdfdfd;height:100%;}
-      #timer {text-align:center;width:90%;margin:auto;font-family:Fira Mono, Monospace;color:#112;text-shadow: 1px  1px 2px;transition:2s;}
+      #timer {text-align:center;width:90%;margin:auto;font-family:'Droid Tech Mono','Ubuntu Mono','Arial';color:#112;text-shadow: 1px  1px 2px;transition:2s;}
       #clock {text-align:center;width:90%;margin:auto;}
       #start {background:#2d5;font-size:1.5em;border:2px outset #2d5;margin:8px;}
       #reset {background:#f44;font-size:1.5em;border:2px outset #f44;margin:8px;}
@@ -20,7 +20,7 @@
   </head>
   <body id="body">
     <div id="clock">
-      <h1 id="timer">00:00</h1>
+      <h1 style="font-size: 314.667px;" id="timer">00:00</h1>
     </div>
     <div id="setup">
       <button class="number" id="one">1</button>
@@ -117,9 +117,11 @@
 
           // Reset the timer when the user clicks reset.
           function resetTime () {
+<<<<<<< HEAD
+=======
             var query = window.location.search.substring(1);
             var vars = query.split('&');
-            var t = '10:00';
+            var t = '07:00';
             vars.forEach(function (element, index, array) {
               if (element.indexOf('t') === 0) {
                 t = element.split('=')[1];
@@ -128,10 +130,11 @@
             if (t.length !== 5) {
               t = '0' + t;
               if (t.length !== 5 && t.indexOf(':') !== 3) {
-                t = '05:00';
+                t = '07:00';
               }
             }
             timer.innerHTML = t;
+>>>>>>> gh-pages
             document.getElementById('body').style.background = '#fdfdfd';
           }
           reset.addEventListener('click', function (evt) {
@@ -190,10 +193,8 @@
             }
           }, false);
 
-
         }, false);
       }());
     </script>
   </body>
 </html>
-
